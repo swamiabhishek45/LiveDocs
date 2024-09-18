@@ -1,0 +1,28 @@
+Improved version of google docs which manages millions of collabortors in real time
+  
+---FEATURE---
+
+1. secure authentication
+2. Full markdown editor
+3. complete document management - create, edit, save and delete doc
+4. Real time nested comments with tagging, emojis and comple CRUD functionality
+5. floating comments
+6. Live cursors
+7. Instant notifications to keep envryone in the loop
+8. flexible sharing options
+9. fully responsive
+
+--- Tech---
+
+1. Next.js - SSR
+2. Nested layouts
+3. server actions
+4. revalidations
+5. TypeScipt
+6. lexical - editor developed by meta
+7. Shadcn
+8. Tailwind CSS
+9. Clerk
+10. Monioring software
+11. Liveblocks - real time features
+12. sentry

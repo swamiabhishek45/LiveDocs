@@ -1,10 +1,10 @@
-import { Button } from '@/components/ui/button'
+import Header from '@/components/Header'
 import React from 'react'
 
 const Home = () => {
   return (
     <div>
-      <Button>Click Me</Button>
+      <Header children/>
     </div>
   )
 }

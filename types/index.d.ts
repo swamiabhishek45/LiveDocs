@@ -20,6 +20,11 @@ declare type CreateDocumentParams = {
     userId: string;
     email: string;
 };
+declare type GetDocumentParams = {
+    roomId: string;
+    userId: string;
+    
+};
 
 declare type User = {
     id: string;

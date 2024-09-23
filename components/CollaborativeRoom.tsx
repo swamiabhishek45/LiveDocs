@@ -22,7 +22,7 @@ const CollaborativeRoom = ({
     const [docTitle, setDocTitle] = useState(roomMetadata.title);
 
     const containerRef = useRef<HTMLDivElement>(null);
-    const inputRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const updateTitleHandler = async (
         e: React.KeyboardEvent<HTMLInputElement>
@@ -39,7 +39,9 @@ const CollaborativeRoom = ({
                     setLoading(false);
                 }
             }
-        } catch (error) {}
+        } catch (error) {
+            console.error("Error in updating document", error);     
+        }
     };
 
     useEffect(() => {
@@ -61,10 +63,10 @@ const CollaborativeRoom = ({
     }, [roomId, docTitle]);
 
     useEffect(() => {
-        if(editing && inputRef.current){
+        if (editing && inputRef.current) {
             inputRef.current.focus();
         }
-    },[editing])
+    }, [editing]);
 
     return (
         <RoomProvider id={roomId}>

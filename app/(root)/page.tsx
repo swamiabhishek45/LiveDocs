@@ -1,4 +1,3 @@
-import AddDocument from "@/components/AddDocumentBtn";
 import Header from "@/components/Header";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
@@ -8,10 +7,13 @@ import React from "react";
 import AddDocumentBtn from "@/components/AddDocumentBtn";
 
 const Home = async () => {
-    const clerkUser = await currentUser();
+    const clerkUser = await currentUser(); // get user from clerk
     if (!clerkUser) redirect("/sign-in");
 
     const documents = [];
+    // console.log("CLERKUSER: ",clerkUser);
+    
+
     return (
         <main className="home-container">
             <Header className="sticky left-0 top-0">

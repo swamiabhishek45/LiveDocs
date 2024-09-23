@@ -46,8 +46,24 @@ export const getDocument = async ({ roomId, userId }: GetDocumentParams) => {
         //     throw new Error("You do not have access to this document");
         // }
 
-        return parseStringify(room);    
+        return parseStringify(room);
     } catch (error) {
-        console.log('Error happened while getting the room',error)
+        console.log("Error happened while getting the room", error);
+    }
+};
+
+export const updateDocument = async (roomId: string, title: string) => {
+    try {
+        const updatedRoom = await liveblocks.updateRoom(roomId, {
+            metadata: {
+                title
+            }
+        })
+
+        revalidatePath(`/documents/${roomId}`)
+
+        return parseStringify(updatedRoom);
+    } catch (error) {
+        console.error("Error happend while upadating a document: ", error);
     }
 };

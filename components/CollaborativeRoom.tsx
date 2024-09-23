@@ -9,6 +9,7 @@ import ActiveCollaborators from "./ActiveCollaborators";
 import Loader from "./Loader";
 import { Input } from "./ui/input";
 import Image from "next/image";
+import { updateDocument } from "@/lib/actions/room.actions";
 
 const CollaborativeRoom = ({
     roomId,
@@ -23,7 +24,23 @@ const CollaborativeRoom = ({
     const containerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLDivElement>(null);
 
-    const updateTitleHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {};
+    const updateTitleHandler = async (
+        e: React.KeyboardEvent<HTMLInputElement>
+    ) => {
+        if (e.key === "Enter") {
+            setLoading(true);
+        }
+
+        try {
+            if (docTitle !== roomMetadata.title) {
+                const updatedDocument = await updateDocument(roomId, docTitle);
+
+                if (updatedDocument) {
+                    setLoading(false);
+                }
+            }
+        } catch (error) {}
+    };
 
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
@@ -32,6 +49,7 @@ const CollaborativeRoom = ({
                 !containerRef.current.contains(e.target as Node)
             ) {
                 setEditing(false);
+                updateDocument(roomId, docTitle);
             }
         };
 
@@ -40,7 +58,13 @@ const CollaborativeRoom = ({
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, []);
+    }, [roomId, docTitle]);
+
+    useEffect(() => {
+        if(editing && inputRef.current){
+            inputRef.current.focus();
+        }
+    },[editing])
 
     return (
         <RoomProvider id={roomId}>

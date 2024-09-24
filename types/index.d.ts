@@ -23,7 +23,6 @@ declare type CreateDocumentParams = {
 declare type GetDocumentParams = {
     roomId: string;
     userId: string;
-    
 };
 
 declare type User = {
@@ -71,13 +70,18 @@ declare type CollaboratorProps = {
 declare type CollaborativeRoomProps = {
     roomId: string;
     roomMetadata: RoomMetadata;
-    // users: User[];
-    // currentUserType: UserType;
+    users: User[];
+    currentUserType: UserType;
 };
 
 declare type AddDocumentBtnProps = {
     userId: string;
     email: string;
+};
+
+declare type EditorProps = {
+    roomId: string;
+    currentUserType: UserType;
 };
 
 declare type DeleteModalProps = { roomId: string };

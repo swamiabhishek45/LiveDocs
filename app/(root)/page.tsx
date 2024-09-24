@@ -16,8 +16,7 @@ const Home = async () => {
     const roomDocuments = await getDocuments(
         clerkUser.emailAddresses[0].emailAddress
     );
-    // console.log("CLERKUSER: ",clerkUser);
-    console.log("ROOMDOCUMENTS: ", roomDocuments);
+    // console.log("ROOMDOCUMENTS: ", roomDocuments);
 
     return (
         <main className="home-container">

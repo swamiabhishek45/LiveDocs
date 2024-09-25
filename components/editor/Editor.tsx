@@ -27,7 +27,7 @@ function Placeholder() {
 export function Editor({ roomId, currentUserType }: EditorProps) {
     const status = useEditorStatus();
     const {threads} = useThreads();
-    console.log("THREADS: ",threads);
+    // console.log("THREADS: ",threads);
     
 
     const initialConfig = liveblocksConfig({

@@ -20,7 +20,7 @@ const Document = async ({ params: { id } }: SearchParamProps) => {
     const users = await getClerkUsers({ userIds });
 
     // console.log("USER IDS: ", userIds);
-    console.log("USERS: ", users);
+    // console.log("USERS: ", users);
 
     const userData = users.map((user: User) => ({
         ...user,

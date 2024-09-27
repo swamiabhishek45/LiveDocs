@@ -10,6 +10,7 @@ import Loader from "./Loader";
 import { Input } from "./ui/input";
 import Image from "next/image";
 import { updateDocument } from "@/lib/actions/room.actions";
+import ShareModal from "./ShareModal";
 
 const CollaborativeRoom = ({
     roomId,
@@ -120,6 +121,14 @@ const CollaborativeRoom = ({
                         </div>
                         <div className="flex justify-end w-full flex-1 gap-2">
                             <ActiveCollaborators />
+
+                            <ShareModal 
+                            roomId={roomId}
+                            collaborators={users}
+                            creatorId={roomMetadata.creatorId}
+                            currentUserType={currentUserType}
+                            />
+
                             <SignedOut>
                                 <SignInButton />
                             </SignedOut>

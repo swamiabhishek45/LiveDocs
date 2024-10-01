@@ -35,6 +35,12 @@ const Document = async ({ params: { id } }: SearchParamProps) => {
         ? "editor"
         : "viewer";
 
+    const userTypeOwner = room.usersAccesses[
+        clerkUser.emailAddresses[0].emailAddress
+    ]
+        ? "owner"
+        : "viewer";
+
     return (
         <main className="flex w-full flex-col items-center">
             <CollaborativeRoom
@@ -43,6 +49,11 @@ const Document = async ({ params: { id } }: SearchParamProps) => {
                 users={userData}
                 currentUserType={currentUserType}
             />
+            <h1>All loged in users</h1>
+            {users.map((user: any) => (
+                <p>{user.email}</p>
+            ))}
+            {/* hihihih */}
         </main>
     );
 };

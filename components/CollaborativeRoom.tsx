@@ -16,9 +16,8 @@ const CollaborativeRoom = ({
     roomId,
     roomMetadata,
     users,
-    currentUserType
+    currentUserType,
 }: CollaborativeRoomProps) => {
-
     const [editing, setEditing] = useState(false);
     const [loading, setLoading] = useState(false);
     const [docTitle, setDocTitle] = useState(roomMetadata.title);
@@ -42,7 +41,7 @@ const CollaborativeRoom = ({
                 }
             }
         } catch (error) {
-            console.error("Error in updating document", error);     
+            console.error("Error in updating document", error);
         }
     };
 
@@ -122,11 +121,11 @@ const CollaborativeRoom = ({
                         <div className="flex justify-end w-full flex-1 gap-2">
                             <ActiveCollaborators />
 
-                            <ShareModal 
-                            roomId={roomId}
-                            collaborators={users}
-                            creatorId={roomMetadata.creatorId}
-                            currentUserType={currentUserType}
+                            <ShareModal
+                                roomId={roomId}
+                                collaborators={users}
+                                creatorId={roomMetadata.creatorId}
+                                currentUserType={currentUserType}
                             />
 
                             <SignedOut>
@@ -137,7 +136,13 @@ const CollaborativeRoom = ({
                             </SignedIn>
                         </div>
                     </Header>
-                    <Editor roomId={roomId} currentUserType={currentUserType}/>
+                    
+                    <Editor
+                        collaborators={users}
+                        creatorId={roomMetadata.creatorId}
+                        roomId={roomId}
+                        currentUserType={currentUserType}
+                    />
                 </div>
             </ClientSideSuspense>
         </RoomProvider>

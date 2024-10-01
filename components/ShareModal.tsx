@@ -35,22 +35,28 @@ const ShareModal = ({
 
     // console.log(collaborators);
 
-    const shareDocumentHandler = async () => { setLoading(true);
+    const shareDocumentHandler = async () => {
+        setLoading(true);
 
-    await updateDocumentAccess({
-        email,
-        roomId,
-        userType: userType as UserType,
-        updatedBy: user.info,
-    });
+        await updateDocumentAccess({
+            email,
+            roomId,
+            userType: userType as UserType,
+            updatedBy: user.info,
+        });
 
-    setLoading(false);};
+        setLoading(false);
+    };
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger>
                 <Button
-                    className="gradient-blue flex h-9 gap-1 px-4"
+                    className={
+                        currentUserType === "editor"
+                            ? `gradient-blue flex h-9 gap-1 px-4`
+                            : `hidden`
+                    }
                     disabled={currentUserType !== "editor"}
                 >
                     <Image

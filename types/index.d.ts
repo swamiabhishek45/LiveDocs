@@ -82,13 +82,15 @@ declare type AddDocumentBtnProps = {
 declare type EditorProps = {
     roomId: string;
     currentUserType: UserType;
+    collaborators: User[];
+    creatorId: string;
 };
 
 declare type GetDocumentProps = {
     roomId: string;
     currentUser: string;
     text: string;
-}
+};
 
 declare type DeleteModalProps = { roomId: string };
 

@@ -131,3 +131,12 @@ export const removeCollaborator = async ({
         console.log("Error happened while removing a collaborator", error);
     }
 };
+
+export const deleteDocument = async (roomId: string ) => {
+    try {
+        await liveblocks.deleteRoom(roomId);
+        revalidatePath("/");
+    } catch (error) {
+        console.log("Error happened while deleting a room", error);
+    }
+};

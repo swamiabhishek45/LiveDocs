@@ -30,8 +30,6 @@ function Placeholder() {
 }
 
 export function Editor({
-    collaborators,
-    creatorId,
     roomId,
     currentUserType,
 }: EditorProps) {

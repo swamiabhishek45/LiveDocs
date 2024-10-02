@@ -2,7 +2,7 @@
 import React from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { saveAs } from "file-saver";
-import { jsPDF } from "jspdf";
+// import { jsPDF } from "jspdf";
 import { Document, Packer, Paragraph, TextRun } from "docx";
 import Image from "next/image";
 

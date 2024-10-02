@@ -82,8 +82,6 @@ declare type AddDocumentBtnProps = {
 declare type EditorProps = {
     roomId: string;
     currentUserType: UserType;
-    collaborators: User[];
-    creatorId: string;
 };
 
 declare type GetDocumentProps = {
@@ -95,3 +93,14 @@ declare type GetDocumentProps = {
 declare type DeleteModalProps = { roomId: string };
 
 declare type ThreadWrapperProps = { thread: ThreadData<BaseMetadata> };
+
+declare type RoomDocumentProps = {
+    id: string;
+    metadata: {
+        title: string; // Example structure, replace it with your actual metadata type
+        description?: string;
+        // Add other metadata fields as needed
+    };
+    createdAt: string;
+    lastConnectionAt: string;
+};

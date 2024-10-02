@@ -46,7 +46,7 @@ const Home = async () => {
                             metadata,
                             createdAt,
                             lastConnectionAt,
-                        }: any) => (
+                        }: RoomDocumentProps) => (
                             <li
                                 key={id}
                                 className="document-list-item border border-transparent hover:border-blue-500 hover:shadow-glow"

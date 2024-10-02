@@ -9,7 +9,7 @@ import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
-import React from "react";
+import React, { useState } from "react";
 import {
     FloatingComposer,
     FloatingThreads,
@@ -22,10 +22,8 @@ import FloatingToolbarPlugin from "./plugins/FloatingToolbarPlugin";
 import { useThreads } from "@liveblocks/react/suspense";
 import Comments from "../Comments";
 import { DeleteModal } from "../DeleteModal";
-
-// Catch any errors that occur during Lexical updates and log them
-// or throw them as needed. If you don't throw them, Lexical will
-// try to recover gracefully without losing user data.
+import WordCountPlugin from "./plugins/WordCountPlugin"; // Plugin for word count
+import SpellCheckPlugin from "./plugins/SpellCheckPlugin"; // Plugin for spell checking
 
 function Placeholder() {
     return <div className="editor-placeholder">Enter some rich text...</div>;
@@ -39,7 +37,6 @@ export function Editor({
 }: EditorProps) {
     const status = useEditorStatus();
     const { threads } = useThreads();
-    // console.log("THREADS: ",threads);
 
     const initialConfig = liveblocksConfig({
         namespace: "Editor",
@@ -65,8 +62,6 @@ export function Editor({
                                     <DeleteModal roomId={roomId} />
                                 )
                         )}
-
-                        {/* {currentUserType === 'editor' && <DeleteModal roomId={roomId} /> } */}
                     </div>
                 </div>
                 <div className="editor-wrapper flex flex-col items-center justify-start">
@@ -86,6 +81,10 @@ export function Editor({
                             )}
                             <HistoryPlugin />
                             <AutoFocusPlugin />
+                            <SpellCheckPlugin /> {/* Spell Check Feature */}
+                            <div className="absolute top-0 right-0">
+                                <WordCountPlugin />
+                            </div>
                         </div>
                     )}
                     <LiveblocksPlugin>

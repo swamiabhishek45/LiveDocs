@@ -1,5 +1,5 @@
 // plugins/SpellCheckPlugin.tsx
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 
 const SpellCheckPlugin = () => {

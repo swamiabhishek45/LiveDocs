@@ -36,7 +36,6 @@ import {
   useSyncExternalStore,
 } from 'react';
 import ExportPlugin from './ExportPlugin';
-import WordCountPlugin from './WordCountPlugin';
 
 const LowPriority = 1;
 

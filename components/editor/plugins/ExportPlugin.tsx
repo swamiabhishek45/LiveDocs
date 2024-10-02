@@ -9,15 +9,15 @@ import Image from "next/image";
 const ExportPlugin = () => {
     const [editor] = useLexicalComposerContext();
 
-    const exportAsPDF = () => {
-        editor.update(() => {
-            const doc = new jsPDF();
-            const textContent =
-                document.querySelector(".editor-input")?.textContent || "";
-            doc.text(textContent, 10, 10);
-            doc.save("document.pdf");
-        });
-    };
+    // const exportAsPDF = () => {
+    //     editor.update(() => {
+    //         const doc = new jsPDF();
+    //         const textContent =
+    //             document.querySelector(".editor-input")?.textContent || "";
+    //         doc.text(textContent, 10, 10);
+    //         doc.save("document.pdf");
+    //     });
+    // };
 
     const exportAsDOCX = async () => {
         editor.update(() => {

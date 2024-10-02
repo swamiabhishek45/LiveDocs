@@ -9,7 +9,7 @@ import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
-import React, { useState } from "react";
+import React from "react";
 import {
     FloatingComposer,
     FloatingThreads,
@@ -55,12 +55,8 @@ export function Editor({
                 <div className="toolbar-wrapper flex min-w-full justify-between">
                     <ToolbarPlugin />
                     <div className="sm:pr-4 pr-0">
-                        {collaborators.map(
-                            (collaborator) =>
-                                creatorId === collaborator.id &&
-                                currentUserType === "editor" && (
-                                    <DeleteModal roomId={roomId} />
-                                )
+                        {currentUserType === "editor" && (
+                            <DeleteModal roomId={roomId} />
                         )}
                     </div>
                 </div>

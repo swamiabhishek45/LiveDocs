@@ -40,7 +40,11 @@ export default function RootLayout({
                         fontSans.variable
                     )}
                 >
-                    <Provider>{children}</Provider>
+                    <Provider>
+                        {children}
+                        <Analytics />
+
+                    </Provider>
                 </body>
             </html>
         </ClerkProvider>

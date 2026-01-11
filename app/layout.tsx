@@ -1,4 +1,5 @@
 import { Inter as FontSans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 
 import { cn } from "@/lib/utils";
 import "./globals.css";
